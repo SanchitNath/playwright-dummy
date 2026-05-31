@@ -1,0 +1,8 @@
+*.egg-info/
+reports/
+screenshot/
+logs/
+venv/
+test-results/
+trace.zip
+.idea.
