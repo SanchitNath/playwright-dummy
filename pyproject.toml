@@ -12,23 +12,33 @@ dependencies = [
     "playwright>=1.40.0",
     "pytest-playwright>=0.4.0",
     "pytest-html>=4.1.1",
-    "allure-pytest>=2.16.0"
+    "allure-pytest>=2.16.0",
+    "pytest-xdist>=3.8.0"
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s,%(msecs)03d [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_date_format = "%Y-%m-%d %H:%M:%S"
 # --headed: shows the browser, --html: generates execution report
-addopts = """
-    -v -s
-    --html=reports/report.html
-    --self-contained-html
-    --capture=no
-    --browser chromium --browser firefox
-    --screenshot=only-on-failure
-    --video=retain-on-failure
-    --alluredir=reports
-"""
+addopts = [
+    "-v",
+    "-n", "auto",
+    "--dist", "loadfile",
+    "--browser", "chromium",
+#    "--browser", "webkit",
+    "--html=reports/report.html",
+    "--self-contained-html",
+    "--screenshot=only-on-failure",
+    "--video=retain-on-failure",
+    "--alluredir=reports",
+    "--tracing=retain-on-failure",
+    "--output=test-results",
+    "--slowmo=500"
+]
 markers = [
     "smoke: Quick smoke tests",
     "regression: Full regression suite"
@@ -36,5 +46,5 @@ markers = [
 
 [tool.setuptools.packages.find]
 # Only scan your actual code directories.
-# Anything else added to the root (like maps, reports, profiles, or logs) is automatically ignored!
+# Anything else added to the root (like logs, reports, screenshot, or test-results) is automatically ignored!
 include = ["pages", "configs", "tests"]
