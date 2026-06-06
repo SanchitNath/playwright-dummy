@@ -9,5 +9,5 @@ __pycache__/
 */__pycache__/
 trace.zip
 *.pyc
-.idea.
+../.idea/
 *.spec

@@ -14,14 +14,18 @@ A scalable, production-ready web automation framework built from scratch using P
 ## Project Structure
 
 ```text
-playwright-python-framework/
+main/
 ├── .github/
 │   └── workflows              # To integrate current project to CI
 │       └── playwright.yml
 ├── configs/
 │   └── environment.py         # Page containing constant
+├── files/
+│   └── log1.txt 
+│   └── log3.pdf 
 ├── logs/                      # To store logs
 ├── pages/
+│   └── base_page.py
 │   └── login_page.py          # Page classes containing locators and actions
 ├── reports/                   # Contains report artifacts
 │   └── report.html
@@ -34,6 +38,7 @@ playwright-python-framework/
 ├── utils/                     # Contains useful scripts
 ├── .gitignore                 # Contains files to not push to a remote repo
 ├── conftest.py                # Global setup/teardown fixtures
+├── main.py
 ├── pyproject.toml             # Unified project metadata and configurations
 └── README.md                  # Project documentation
 ```
@@ -56,7 +61,7 @@ Ensure you have [Python 3.8+](https://python.org) installed on your machine. Fol
 ```bash
   mkdir playwright-python-framework
   cd playwright-python-framework
-  pnpm create playwright
+  pnpm create playwright (to create project in JavaScript or TypeScript style)
 ```
 
 ### 2. Install Project Dependencies After Creating Virtual Envt
@@ -202,7 +207,7 @@ Once opened you can click on each action or use the timeline to see the state of
 ## To run api
 ```bash
   pytest --base-url https://mywebapp.com
-  Then use
+  Then run
   page.goto("/dashboard")
 ```
 
