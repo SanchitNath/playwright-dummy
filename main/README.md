@@ -121,7 +121,7 @@ over PLAYWRIGHT_DOWNLOAD_HOST
 
 ## Running the Tests
 
-The framework is configured to run tests in **headed** mode (visible browser window) by default and output results 
+The framework is configured to run tests in **headless** mode by default and output results 
 directly to your terminal.
 
 ### Run All Tests

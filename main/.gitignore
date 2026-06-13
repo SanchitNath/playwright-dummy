@@ -1,13 +1,12 @@
 build/
 *.egg-info/
 reports/
-screenshots/
-logs/
+screenshots/*
+logs/*
 venv/
 test-results/
 __pycache__/
-*/__pycache__/
 trace.zip
 *.pyc
-../.idea/
+.idea/*
 *.spec

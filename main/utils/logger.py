@@ -11,8 +11,8 @@ class LogGen:
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         # os.makedirs(log_dir, exist_ok=True)
-        # Format: testSuite-01-05-2026_15-30-00-filename.log
         timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+        # Format: logger-01-05-2026_15-30-00-filename.log
         log_file_name = f"logger-{timestamp}-{origin_name}.log"
         filepath = os.path.join(log_dir, log_file_name)
 
